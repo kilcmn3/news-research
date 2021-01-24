@@ -4,7 +4,6 @@ const MainContainer = () => {
   const [news, setNews] = useState({});
 
   useEffect(() => {
-    effect;
     return () => {
       cleanup;
     };
