@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class MainContainer extends React {
+class MainContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,13 +8,15 @@ class MainContainer extends React {
     };
   }
 
-  handleOnClick = (count) => {
-    console.log(count);
+  handleOnClick = (e) => {
+    this.setState({
+      count: e.target.value++,
+    });
   };
   render() {
     return (
-      <div class='MainContainer'>
-        <button onClick={(count) => this.handleOnClick(count)}>
+      <div>
+        <button onClick={(e) => this.handleOnClick(e)}>
           {this.state.count}
         </button>
       </div>
