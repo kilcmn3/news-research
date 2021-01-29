@@ -1,14 +1,25 @@
-import React, { Component, useState, useEffet } from 'react';
+import React, { Component } from 'react';
 
-const MainContainer = () => {
-  const [news, setNews] = useState({});
-
-  useEffect(() => {
-    return () => {
-      cleanup;
+class MainContainer extends React {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
     };
-  }, []);
-  return <div>MainContainer</div>;
-};
+  }
+
+  handleOnClick = (count) => {
+    console.log(count);
+  };
+  render() {
+    return (
+      <div class='MainContainer'>
+        <button onClick={(count) => this.handleOnClick(count)}>
+          {this.state.count}
+        </button>
+      </div>
+    );
+  }
+}
 
 export default MainContainer;
