@@ -4,23 +4,18 @@ class MainContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      listNews: [],
     };
   }
 
-  handleOnClick = (e) => {
-    this.setState({
-      count: e.target.value++,
-    });
-  };
+  componentDidMount() {
+    fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
+      .then((response) => response.json())
+      .then((list) => console.log(list));
+  }
+
   render() {
-    return (
-      <div>
-        <button onClick={(e) => this.handleOnClick(e)}>
-          {this.state.count}
-        </button>
-      </div>
-    );
+    return <div className='MainContainer'></div>;
   }
 }
 
