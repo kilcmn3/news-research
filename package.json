@@ -12,7 +12,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "BROWSER='chrome' react-scripts start",
+=======
+    "start":  "BROWSER='chrome' react-scripts start",
+>>>>>>> main
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

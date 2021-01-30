@@ -8,13 +8,24 @@ class MainContainer extends Component {
     };
   }
 
+<<<<<<< HEAD
   handleOnClick = (event) => {
     this.setState({ count: event.target.value++ });
+=======
+  handleOnClick = (e) => {
+    this.setState({
+      count: e.target.value++,
+    });
+>>>>>>> main
   };
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <button onClick={(event) => this.handleOnClick(event)}>
+=======
+        <button onClick={(e) => this.handleOnClick(e)}>
+>>>>>>> main
           {this.state.count}
         </button>
       </div>
