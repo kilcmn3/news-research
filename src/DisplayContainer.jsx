@@ -6,6 +6,7 @@ class DisplayContainer extends Component {
     this.state = {
       topStories: [],
     };
+    this.scanItems = this.scanItems.bind(this)
   }
 
   componentDidMount() {
@@ -14,13 +15,17 @@ class DisplayContainer extends Component {
       .then((data) => this.setState({ topStories: data }));
   }
 
-   scanItems() {
-    return 
+   scanItems(items) {
+    if(items.length !== undefined){
+      for(let i = 0; i < items.length; i++){
+        return <DisplayCards item={items[i]} />
+      }
+    }
   }
 
   render() {
     return <div className='DisplayContainer'>Main Container
-      <DisplayCards />
+      {this.scanItems(this.state.topStories)}
     </div>;
   }
 }
