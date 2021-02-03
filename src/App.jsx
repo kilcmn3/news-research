@@ -1,11 +1,11 @@
 import './App.css';
-import MainContainer from './MainContainer';
+import DisplayContainer from './DisplayContainer';
 
 function App() {
   return (
     <div className='App'>
       App
-      <MainContainer />
+      <DisplayContainer />
     </div>
   );
 }
