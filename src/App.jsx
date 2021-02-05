@@ -1,12 +1,18 @@
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DisplayContainer from './DisplayContainer';
 
 function App() {
   return (
-    <div className='App'>
-      App
-      <DisplayContainer />
-    </div>
+    <Router>
+      <div className='App'>
+        <Switch>
+          <Route path='/'>
+            <DisplayContainer />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
