@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import DisplayCards from './DisplayCards'
+import DisplayCards from './DisplayCards';
 class DisplayContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       topStories: [],
     };
-    this.scanItems = this.scanItems.bind(this)
+    this.scanItems = this.scanItems.bind(this);
   }
 
   componentDidMount() {
@@ -15,18 +15,21 @@ class DisplayContainer extends Component {
       .then((data) => this.setState({ topStories: data }));
   }
 
-   scanItems(items) {
-    if(items.length !== undefined){
-      for(let i = 0; i < items.length; i++){
-        return <DisplayCards item={items[i]} />
+  scanItems(items) {
+    if (items.length !== undefined) {
+      for (let i = 0; i < items.length; i++) {
+        return <DisplayCards item={items[i]} />;
       }
     }
   }
 
   render() {
-    return <div className='DisplayContainer'>Main Container
-      {this.scanItems(this.state.topStories)}
-    </div>;
+    return (
+      <div className='DisplayContainer'>
+        Main Container
+        {this.scanItems(this.state.topStories)}
+      </div>
+    );
   }
 }
 
