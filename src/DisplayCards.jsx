@@ -16,7 +16,42 @@ class DisplayCards extends Component {
       .then((data) => this.setState({ article: data }));
   }
   render() {
-    return <div className='DisplayCards'>DisplayCards</div>;
+    const { article } = this.state;
+    console.log(article);
+    return (
+      <div className='DisplayCards'>
+        <article className='Stroy'>
+          <div className='Stroy_container'>
+            <div className='Stroy_data'>
+              <div className='Stroy_title'>
+                <a href={article.url}>
+                  <span>{article.title}</span>
+                </a>
+                <a href={article.url} target='_blank' className='Stroy_link'>
+                  ({article.url})
+                  <div className='Stroy_meta'>
+                    <span>
+                      <a href={article.url}>{article.score} points</a>
+                    </span>
+                    <span className='Story_separator'>|</span>
+                    <span>
+                      <a href={article.url}>
+                        <span>{article.by}</span>
+                        <span className='Story_separator'>|</span>
+                      </a>
+                    </span>
+                    <span>
+                      {/* start here again*/}
+                      <a href={article.url}></a>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    );
   }
 }
 
