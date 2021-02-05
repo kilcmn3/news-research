@@ -27,7 +27,7 @@ class DisplayCards extends Component {
                 <a href={article.url}>
                   <span>{article.title}</span>
                 </a>
-                <a href={article.url} target='_blank' className='Stroy_link'>
+                <a href={article.url} className='Stroy_link'>
                   ({article.url})
                   <div className='Stroy_meta'>
                     <span>
