@@ -18,17 +18,30 @@ class DisplayContainer extends Component {
   scanItems(items) {
     if (items.length !== undefined) {
       for (let i = 0; i < items.length; i++) {
-        return <DisplayCards item={items[i]} />;
+        return (
+          <tr>
+            <DisplayCards item={items[i]} />;
+          </tr>
+        );
       }
     }
   }
 
   render() {
     return (
-      <div className='DisplayContainer'>
-        Main Container
-        {this.scanItems(this.state.topStories)}
-      </div>
+      <center>
+        <table id='hnmain'>
+          <tbody>
+            <tr>
+              <td>
+                <table className='itemlist'>
+                  <tbody>{this.scanItems(this.state.topStories)}</tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
     );
   }
 }
