@@ -8,11 +8,11 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
+          <Route path='/item/:itemID'>
+            <ViewArticleContainer />
+          </Route>
           <Route path='/'>
             <DisplayContainer />
-          </Route>
-          <Route path='/item?id=:itemId'>
-            <ViewArticleContainer />
           </Route>
         </Switch>
       </div>

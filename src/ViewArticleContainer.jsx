@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function ViewArticlePage(props) {
-  return console.log(this.props);
+export default function ViewArticleContainer(props) {
+  return <div>Hello this is View ViewArticleContainer</div>;
 }
