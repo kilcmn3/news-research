@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ViewArticlePage extends Component {
+class ViewArticleCard extends Component {
   constructor(props) {
     super(props);
 
@@ -18,4 +18,4 @@ class ViewArticlePage extends Component {
   }
 }
 
-export default ViewArticlePage;
+export default ViewArticleCard;
