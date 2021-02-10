@@ -6,6 +6,7 @@
  */
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class DisplayCards extends Component {
   constructor(props) {
@@ -29,7 +30,13 @@ class DisplayCards extends Component {
         <div className='Story_container'>
           <div className='Story_data'>
             <div className='Story_title'>
-              <a href={story.url}>{story.title}</a>
+              <Link
+                to={{
+                  pathname: `/item/${story.id}`,
+                  // state: { comments: story.kids },
+                }}>
+                {story.title}
+              </Link>
               <a href={story.url}>({story.url})</a>
             </div>
             <div className='Story_meta'>
