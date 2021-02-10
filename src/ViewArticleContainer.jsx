@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function ViewArticleContainer(props) {
-  console.log(props);
-  return <div>Hello this is View ViewArticleContainer</div>;
+class ViewArticleContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componetDidMount() {
+    const { comments } = this.props.location.state;
+  }
+
+  render() {
+    console.log(this.props.location);
+    return <div>Hello this is View ViewArticleContainer</div>;
+  }
 }
+
+export default ViewArticleContainer;
