@@ -1,22 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import DisplayContainer from './DisplayContainer';
 import ViewArticleContainer from './ViewArticleContainer';
 
 function App() {
   return (
-    <Router>
-      <div className='App'>
-        <Switch>
-          <Route path='/item/:itemID'>
-            <ViewArticleContainer />
-          </Route>
-          <Route path='/'>
-            <DisplayContainer />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className='App'>
+      <Switch>
+        <Route exact path='/'>
+          <DisplayContainer />
+        </Route>
+        <Route path='/item/:itemId'>
+          <ViewArticleContainer />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
