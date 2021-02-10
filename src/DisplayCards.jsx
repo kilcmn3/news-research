@@ -33,7 +33,7 @@ class DisplayCards extends Component {
               <Link
                 to={{
                   pathname: `/item/${story.id}`,
-                  // state: { comments: story.kids },
+                  state: { comments: story.kids },
                 }}>
                 {story.title}
               </Link>
