@@ -9,10 +9,20 @@ class DisplayContainer extends Component {
     this.scanItems = this.scanItems.bind(this);
   }
 
+  _isMounted = false;
   componentDidMount() {
-    fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
-      .then((response) => response.json())
-      .then((data) => this.setState({ topStories: data }));
+    this._isMounted = true;
+    if (this._isMounted) {
+      fetch(
+        'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
+      )
+        .then((response) => response.json())
+        .then((data) => this.setState({ topStories: data }));
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   scanItems(items) {
