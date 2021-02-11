@@ -16,12 +16,19 @@ class DisplayCards extends Component {
     };
   }
 
+  _isMounted = false;
+
   componentDidMount() {
     fetch(
       `https://hacker-news.firebaseio.com/v0/item/${this.props.item}.json?print=pretty`
     )
       .then((response) => response.json())
       .then((data) => this.setState({ story: data }));
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   render() {
     const { story } = this.state;
