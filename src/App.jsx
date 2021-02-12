@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import DisplayContainer from './DisplayContainer';
 import ViewArticleContainer from './ViewArticleContainer';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Switch>
@@ -16,6 +16,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;
