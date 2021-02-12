@@ -1,39 +1,30 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import DisplayCards from './DisplayCards';
-class DisplayContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      topStories: [],
-    };
-    this.scanItems = this.scanItems.bind(this);
-  }
 
-  componentDidMount() {
+const DisplayContainer = (props) => {
+  const [topStories, setTopStories] = useState([]);
+
+  useEffect(() => {
     fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
       .then((response) => response.json())
-      .then((data) => this.setState({ topStories: data }));
-  }
+      .then((data) => setTopStories(data));
+  }, []);
 
-  scanItems(items) {
+  const scanItems = (items) => {
     if (items.length !== undefined) {
       return items.map((item, index) => {
         return <DisplayCards key={index} item={item} />;
       });
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className='container'>
-        <section className='SearchResults'>
-          <div className='SearchResults_container'>
-            {this.scanItems(this.state.topStories)}
-          </div>
-        </section>
-      </div>
-    );
-  }
-}
+  return (
+    <div className='container'>
+      <section className='SearchResults'>
+        <div className='SearchResults_container'>{scanItems(topStories)}</div>
+      </section>
+    </div>
+  );
+};
 
 export default DisplayContainer;
