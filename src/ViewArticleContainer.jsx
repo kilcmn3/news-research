@@ -1,42 +1,76 @@
+/**
+ * TODO:
+ * -[]regex for URL ex) www.bbc.com/item/123 -> bbc.com
+ * -[]when click bbc link shows all the articles that relate to  bbc articles
+ * -[]when click author shows all the articles about author's related
+ * -[]when click data refresh the  page?
+ * -[]Unix time fix
+ * **/
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-
 const ViewArticleContainer = (props) => {
-  
-  const [comments, setComments] = useState([]);
+  const [article, setArticle] = useState([]);
   let params = useParams();
-  const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`
+  const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
 
   useEffect(() => {
-    fetch(_newsAPI
-      
-    )
+    fetch(_newsAPI)
       .then((response) => response.json())
-      .then((data) => setComments(data));
+      .then((data) => setArticle(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (<center>
-    <table id="hnmain">
-      <tbody>
-        <tr>
-          <td>
-            <table class="fatitem">
-              <tbody>
-                <tr class="athing" id={params.itemId}>
-                  <td className="title">
-                  <a href= {_newsAPI}></a>
+  return (
+    <center>
+      <table id='hnmain'>
+        <tbody>
+          <tr>
+            <td>
+              <table className='fatitem'>
+                <tbody>
+                  <tr className='athing' id={params.itemId}>
+                    <td className='title'>
+                      <a href={_newsAPI}>{article.title}</a>
+                      <span className='sitebit comehead'>
+                        (
+                        <a href={_newsAPI}>
+                          <span className='sitestr'>{_newsAPI}</span>
+                        </a>
+                        )
+                      </span>
+                    </td>
+                  </tr>
+                  <td colspna='2'></td>
+                  <td className='subtext'>
+                    <span className='score' id={`score_${params.itemId}`}>
+                      {article.score}
+                    </span>
+                    by
+                    <a href={article.by} className='hnuser'>
+                      {article.by}
+                    </a>
+                    <span className='age'>
+                      <a href={params.id}>on {article.time}</a>
+                      <span id={`unv_${params.itemId}`}></span>
+                    </span>
+                    |
+                    <a href={params.id}>
+                      {article.kids !== undefined ? article.kids.length : 0}{' '}
+                      comments
+                    </a>
                   </td>
-                </tr>
-              </tbody>
-              <br/>
-              <br/>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </center>;)
+                </tbody>
+                <br />
+                <br />
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  );
 };
 
 export default ViewArticleContainer;
