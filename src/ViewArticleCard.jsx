@@ -9,9 +9,9 @@ class ViewArticleCard extends Component {
     };
   }
 
-  componentDidMount() {
-    //   fetch(`https://hacker-news.firebaseio.com/v0/item/${this.props.}.json?print=pretty`)
-  }
+  // componentDidMount() {
+  //   //   fetch(`https://hacker-news.firebaseio.com/v0/item/${this.props.}.json?print=pretty`)
+  // }
 
   render() {
     return;
