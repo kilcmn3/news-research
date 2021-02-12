@@ -19,7 +19,8 @@ const DisplayCards = (props) => {
       .then((data) => setStory(data));
 
     return () => setStory([]);
-  }, [props.item]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <article className='Story'>
