@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useState, useLocation } from 'react-router-dom';
 
-class ViewArticleContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componetDidMount() {
-    const { comments } = this.props.location.state;
-  }
-
-  render() {
-    console.log(this.props.location);
-    return <div>Hello this is View ViewArticleContainer</div>;
-  }
-}
+const ViewArticleContainer = (props) => {
+  const [comments, setComments] = useState([]);
+  let location = useLocation();
+  console.log(location);
+  return <div>Hello this is View ViewArticleContainer</div>;
+};
 
 export default ViewArticleContainer;
