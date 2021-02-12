@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ViewArticleCard extends Component {
+const ViewArticleCard = (props) => {
   // constructor(props) {
   //   super(props);
 
@@ -13,9 +13,7 @@ class ViewArticleCard extends Component {
   //   //   fetch(`https://hacker-news.firebaseio.com/v0/item/${this.props.}.json?print=pretty`)
   // }
 
-  render() {
-    return;
-  }
-}
+  return;
+};
 
 export default ViewArticleCard;
