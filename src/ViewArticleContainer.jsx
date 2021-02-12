@@ -9,6 +9,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ViewArticleCard from './ViewArticleCard';
 
 const ViewArticleContainer = (props) => {
   const [article, setArticle] = useState([]);
@@ -21,6 +22,14 @@ const ViewArticleContainer = (props) => {
       .then((data) => setArticle(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const scanComments = () => {
+    if (article.kids !== undefined) {
+      return article.kids.map((comment, index) => {
+        return <ViewArticleCard key={index} comment={comment} />;
+      });
+    }
+  };
 
   return (
     <center>
@@ -62,8 +71,11 @@ const ViewArticleContainer = (props) => {
                     </a>
                   </td>
                 </tbody>
-                <br />
-                <br />
+              </table>
+              <br />
+              <br />
+              <table className='comment-tree'>
+                <tbody>{scanComments()}</tbody>
               </table>
             </td>
           </tr>
