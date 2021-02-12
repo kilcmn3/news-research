@@ -8,6 +8,8 @@ const DisplayContainer = (props) => {
     fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
       .then((response) => response.json())
       .then((data) => setTopStories(data));
+
+    return () => setTopStories([]);
   }, []);
 
   const scanItems = (items) => {
