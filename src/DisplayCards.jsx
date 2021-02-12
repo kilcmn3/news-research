@@ -17,6 +17,8 @@ const DisplayCards = (props) => {
     )
       .then((response) => response.json())
       .then((data) => setStory(data));
+
+    return () => setStory([]);
   }, [props.item]);
 
   return (

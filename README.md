@@ -11,3 +11,4 @@
 
   ## React Memory leak with setState and compoenentDidmount
     -https://www.debuggr.io/react-update-unmounted-component/
+    -Solution: 1. Switch to react  hook, and clean setState after unmount.
