@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class ViewArticleCard extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      comments: [],
-    };
-  }
+  //   this.state = {
+  //     comments: [],
+  //   };
+  // }
 
   // componentDidMount() {
   //   //   fetch(`https://hacker-news.firebaseio.com/v0/item/${this.props.}.json?print=pretty`)
