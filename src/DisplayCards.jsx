@@ -29,7 +29,6 @@ const DisplayCards = (props) => {
             <Link
               to={{
                 pathname: `/item/${story.id}`,
-                state: { comments: story.kids },
               }}>
               {story.title}
             </Link>
