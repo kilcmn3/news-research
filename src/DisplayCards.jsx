@@ -29,7 +29,6 @@ const DisplayCards = (props) => {
 
   useEffect(() => {
     dataAPI();
-
     return () => setStory({});
   }, []);
 
