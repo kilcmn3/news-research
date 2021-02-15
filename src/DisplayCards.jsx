@@ -28,13 +28,9 @@ const DisplayCards = (props) => {
   }
 
   useEffect(() => {
-    // fetch(
-    //   `https://hacker-news.firebaseio.com/v0/item/${props.item}.json?print=pretty`
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => setStory(data));
     dataAPI();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    return () => setStory({});
   }, []);
 
   return (
