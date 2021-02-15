@@ -3,6 +3,7 @@
  * - [x]Link vs Anchor issue
  * - []Convert unit time to years only
  * - []some of the article doesn't have URL link
+ * - []fetching ..better if use asnychronous way
  */
 
 import React, { useEffect, useState } from 'react';
