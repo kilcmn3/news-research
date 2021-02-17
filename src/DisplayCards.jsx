@@ -74,7 +74,7 @@ const DisplayCards = (props) => {
           </div>
         </div>
       ) : (
-        'loading'
+        <div></div>
       )}
     </article>
   );
