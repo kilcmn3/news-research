@@ -14,5 +14,9 @@
     -Solution: 1. Switch to react  hook, and clean setState after unmount.
 
   ## Fetching Asynchronous Data-
+<<<<<<< HEAD
     -https://www.polvara.me/posts/fetching-asynchronous-data-with-react-hooks/
     -https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/#howtofetchdatawithasyncawaitinreact
+=======
+    -https://www.polvara.me/posts/fetching-asynchronous-data-with-react-hooks/
+>>>>>>> b6a28d74e4e4a03edc86b296e67ed19ea03f16f2
