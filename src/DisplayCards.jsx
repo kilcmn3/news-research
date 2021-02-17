@@ -21,6 +21,7 @@ const DisplayCards = (props) => {
       )
         .then((response) => response.json())
         .then((data) => setStory(data));
+
       await setLoading(true);
     } catch (e) {
       setError(e);
