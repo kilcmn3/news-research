@@ -15,3 +15,4 @@
 
   ## Fetching Asynchronous Data-
     -https://www.polvara.me/posts/fetching-asynchronous-data-with-react-hooks/
+    -https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/#howtofetchdatawithasyncawaitinreact
