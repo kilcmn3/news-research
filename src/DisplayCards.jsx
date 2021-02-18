@@ -3,7 +3,7 @@
  * - [x]Link vs Anchor issue
  * - []Convert unit time to years only
  * - []some of the article doesn't have URL link
- * - []fetching ..better if use asnychronous way
+ * - [x]fetching ..better if use asnychronous way
  * - []better handling with error
  */
 
@@ -21,6 +21,7 @@ const DisplayCards = (props) => {
       .then((data) => setStory(data))
       .catch((error) => console.log(error));
     return () => setStory(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
