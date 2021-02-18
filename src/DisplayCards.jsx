@@ -14,68 +14,67 @@ const DisplayCards = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function dataAPI() {
-    try {
-      await fetch(
-        `https://hacker-news.firebaseio.com/v0/item/${props.item}.json?print=pretty`
-      )
-        .then((response) => response.json())
-        .then((data) => setStory(data));
-
-      await setLoading(true);
-    } catch (e) {
-      setError(e);
-    }
-  }
+  // async function dataAPI() {
+  //   try {
+  //     setLoading(true);
+  //     await
+  //     setLoading(false);
+  //   } catch (e) {
+  //     setError(e);
+  //   }
+  // }
 
   useEffect(() => {
-    dataAPI();
+    fetch(
+      `https://hacker-news.firebaseio.com/v0/item/${props.item}.json?print=pretty`
+    )
+      .then((response) => response.json())
+      .then((data) => setStory(data))
+      .catch((error) => console.log(error));
     return () => setStory({});
   }, []);
 
+  console.log(story);
+
   return (
     <article className='Story'>
-      {loading ? (
-        <div className='Story_container'>
-          <div className='Story_data'>
-            <div className='Story_title'>
-              <Link
-                to={{
-                  pathname: `/item/${story.id}`,
-                }}>
-                {story.title}
-              </Link>
-              <a href={story.url}>({story.url})</a>
-            </div>
-            <div className='Story_meta'>
-              <span>
-                <a href={story.url}>{story.score} points</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{story.by}</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{story.time}</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{story.time} ago</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>
-                  {story.kids !== undefined ? story.kids.length : 0}
-                  times
-                </a>
-              </span>
-            </div>
+      <div className='Story_container'>
+        <div className='Story_data'>
+          <div className='Story_title'>
+            <Link
+              to={{
+                pathname: `/item/${story.id}`,
+              }}>
+              {story.title}
+            </Link>
+            <a href={story.url}>({story.url})</a>
+          </div>
+          <div className='Story_meta'>
+            <span>
+              <a href={story.url}>{story.score} points</a>
+            </span>
+            <span className='Story_separator'>|</span>
+            <span>
+              <a href={story.url}>{story.by}</a>
+            </span>
+            <span className='Story_separator'>|</span>
+            <span>
+              <a href={story.url}>{story.time}</a>
+            </span>
+            <span className='Story_separator'>|</span>
+            <span>
+              <a href={story.url}>{story.time} ago</a>
+            </span>
+            <span className='Story_separator'>|</span>
+            <span>
+              <a href={story.url}>
+                {story.kids !== undefined ? story.kids.length : 0}
+                times
+              </a>
+            </span>
           </div>
         </div>
-      ) : (
-        <div></div>
-      )}
+      </div>
     </article>
   );
 };
