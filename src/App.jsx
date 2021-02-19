@@ -2,6 +2,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import DisplayContainer from './DisplayContainer';
 import ViewArticleContainer from './ViewArticleContainer';
+import UserContainer from './UserContainer';
 
 const App = () => {
   return (
@@ -12,6 +13,9 @@ const App = () => {
         </Route>
         <Route path='/item/:itemId'>
           <ViewArticleContainer />
+        </Route>
+        <Route path='user/:userName'>
+          <UserContainer />
         </Route>
       </Switch>
     </div>
