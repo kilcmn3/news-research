@@ -51,31 +51,33 @@ const ViewArticleContainer = (props) => {
                       </span>
                     </td>
                   </tr>
-                  <td colspna='2'></td>
-                  <td className='subtext'>
-                    <span className='score' id={`score_${params.itemId}`}>
-                      {article.score}
-                    </span>
-                    by
-                    <a href={article.by} className='hnuser'>
-                      {article.by}
-                    </a>
-                    <span className='age'>
-                      <a href={params.id}>on {article.time}</a>
-                      <span id={`unv_${params.itemId}`}></span>
-                    </span>
-                    |
-                    <a href={params.id}>
-                      {article.kids !== undefined ? article.kids.length : 0}{' '}
-                      comments
-                    </a>
-                  </td>
+                  <tr>
+                    <td colspna='2'></td>
+                    <td className='subtext'>
+                      <span className='score' id={`score_${params.itemId}`}>
+                        {article.score}
+                      </span>
+                      by
+                      <a href={article.by} className='hnuser'>
+                        {article.by}
+                      </a>
+                      <span className='age'>
+                        <a href={params.id}>on {article.time}</a>
+                        <span id={`unv_${params.itemId}`}></span>
+                      </span>
+                      |
+                      <a href={params.id}>
+                        {article.kids !== undefined ? article.kids.length : 0}{' '}
+                        comments
+                      </a>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <br />
               <br />
               <table className='comment-tree'>
-                <tbody>{scanComments()}</tbody>
+                {scanComments()}
               </table>
             </td>
           </tr>
