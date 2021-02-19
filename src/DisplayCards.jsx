@@ -20,7 +20,7 @@ const DisplayCards = (props) => {
       .then((response) => response.json())
       .then((data) => setStory(data))
       .catch((error) => console.log(error));
-    return () => setStory(null);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
