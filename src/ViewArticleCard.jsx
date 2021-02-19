@@ -52,6 +52,8 @@ const ViewArticleCard = (props) => {
                     </div>
                     <br></br>
                     <div className='comment'>
+                      {/* DOMparase()
+                      please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
                       <span className='commtext c00'>{comment.text}</span>
                       <div className='reply'></div>
                     </div>
