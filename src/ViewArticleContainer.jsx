@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import ViewArticleCard from './ViewArticleCard';
 
 const ViewArticleContainer = (props) => {
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState({});
   let params = useParams();
   const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
 
@@ -21,6 +21,8 @@ const ViewArticleContainer = (props) => {
       .then((response) => response.json())
       .then((data) => setArticle(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    return () => setArticle({});
   }, []);
 
   const scanComments = () => {
@@ -76,9 +78,7 @@ const ViewArticleContainer = (props) => {
               </table>
               <br />
               <br />
-              <table className='comment-tree'>
-                {scanComments()}
-              </table>
+              <table className='comment-tree'>{scanComments()}</table>
             </td>
           </tr>
         </tbody>

@@ -4,6 +4,7 @@
  **/
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
@@ -28,7 +29,12 @@ const ViewArticleCard = (props) => {
                 <td className='default'>
                   {/* style = style="margin-top:2px; margin-bottom:-10px;" */}
                   <div>
-                    <span className='comhead'></span>
+                    <span className='comhead'>
+                      <Link
+                        to={{
+                          pathname: `/user/${comment.by}`,
+                        }}></Link>
+                    </span>
                   </div>
                 </td>
               </tr>

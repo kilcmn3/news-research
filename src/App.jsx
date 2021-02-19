@@ -14,7 +14,7 @@ const App = () => {
         <Route path='/item/:itemId'>
           <ViewArticleContainer />
         </Route>
-        <Route path='user/:userName'>
+        <Route path='/user/:userName'>
           <UserContainer />
         </Route>
       </Switch>
