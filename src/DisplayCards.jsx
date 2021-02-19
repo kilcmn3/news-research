@@ -3,39 +3,30 @@
  * - [x]Link vs Anchor issue
  * - []Convert unit time to years only
  * - []some of the article doesn't have URL link
- * - []fetching ..better if use asnychronous way
+ * - [x]fetching ..better if use asnychronous way
+ * - []better handling with error
  */
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayCards = (props) => {
-  const [story, setStory] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  async function dataAPI() {
-    try {
-      await fetch(
-        `https://hacker-news.firebaseio.com/v0/item/${props.item}.json?print=pretty`
-      )
-        .then((response) => response.json())
-        .then((data) => setStory(data));
-
-      await setLoading(true);
-    } catch (e) {
-      setError(e);
-    }
-  }
+  const [story, setStory] = useState(null);
 
   useEffect(() => {
-    dataAPI();
-    return () => setStory({});
+    fetch(
+      `https://hacker-news.firebaseio.com/v0/item/${props.item}.json?print=pretty`
+    )
+      .then((response) => response.json())
+      .then((data) => setStory(data))
+      .catch((error) => console.log(error));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <article className='Story'>
-      {loading ? (
+      {story !== null ? (
         <div className='Story_container'>
           <div className='Story_data'>
             <div className='Story_title'>
@@ -74,7 +65,7 @@ const DisplayCards = (props) => {
           </div>
         </div>
       ) : (
-        'loading'
+        <div></div>
       )}
     </article>
   );

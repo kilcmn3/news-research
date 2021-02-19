@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import ViewArticleCard from './ViewArticleCard';
 
 const ViewArticleContainer = (props) => {
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState({});
   let params = useParams();
   const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
 
@@ -21,6 +21,8 @@ const ViewArticleContainer = (props) => {
       .then((response) => response.json())
       .then((data) => setArticle(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    return () => setArticle({});
   }, []);
 
   const scanComments = () => {
@@ -51,32 +53,32 @@ const ViewArticleContainer = (props) => {
                       </span>
                     </td>
                   </tr>
-                  <td colspna='2'></td>
-                  <td className='subtext'>
-                    <span className='score' id={`score_${params.itemId}`}>
-                      {article.score}
-                    </span>
-                    by
-                    <a href={article.by} className='hnuser'>
-                      {article.by}
-                    </a>
-                    <span className='age'>
-                      <a href={params.id}>on {article.time}</a>
-                      <span id={`unv_${params.itemId}`}></span>
-                    </span>
-                    |
-                    <a href={params.id}>
-                      {article.kids !== undefined ? article.kids.length : 0}{' '}
-                      comments
-                    </a>
-                  </td>
+                  <tr>
+                    <td colspna='2'></td>
+                    <td className='subtext'>
+                      <span className='score' id={`score_${params.itemId}`}>
+                        {article.score}
+                      </span>
+                      by
+                      <a href={article.by} className='hnuser'>
+                        {article.by}
+                      </a>
+                      <span className='age'>
+                        <a href={params.id}>on {article.time}</a>
+                        <span id={`unv_${params.itemId}`}></span>
+                      </span>
+                      |
+                      <a href={params.id}>
+                        {article.kids !== undefined ? article.kids.length : 0}{' '}
+                        comments
+                      </a>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <br />
               <br />
-              <table className='comment-tree'>
-                <tbody>{scanComments()}</tbody>
-              </table>
+              <table className='comment-tree'>{scanComments()}</table>
             </td>
           </tr>
         </tbody>
