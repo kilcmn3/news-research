@@ -1,6 +1,7 @@
 /**
  *TODO:
  *-[]Imply style on <div> tag
+ *-[]Comment.text need to seperate text with html tag..
  **/
 
 import React, { useEffect, useState } from 'react';
