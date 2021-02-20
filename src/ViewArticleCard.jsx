@@ -10,6 +10,7 @@ import ReplyCard from './ReplyCard';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
+  const domparser = new DOMParser();
 
   useEffect(() => {
     fetch(
@@ -17,6 +18,7 @@ const ViewArticleCard = (props) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(typeof data.text);
         if (data.by !== undefined) return setComment(data);
       })
       .catch((e) => console.log(e));
@@ -29,6 +31,7 @@ const ViewArticleCard = (props) => {
       return <ReplyCard key={index} kid={kid} />;
     });
   };
+
   return (
     <tbody>
       {comment !== null ? (
@@ -54,7 +57,12 @@ const ViewArticleCard = (props) => {
                     <div className='comment'>
                       {/* DOMparase()
                       please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
-                      <span className='commtext c00'>{comment.text}</span>
+                      <span className='commtext c00'>
+                        {/* {domparser.parseFromString(
+                          comment.text,
+                          'application/xml'
+                        )} */}
+                      </span>
                       <div className='reply'></div>
                     </div>
                   </td>
