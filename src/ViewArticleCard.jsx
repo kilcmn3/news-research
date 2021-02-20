@@ -7,6 +7,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReplyCard from './ReplyCard';
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+  htmlparser2,
+} from 'react-html-parser';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
@@ -56,7 +61,7 @@ const ViewArticleCard = (props) => {
                       {/* DOMparase()
                       please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
                       <span className='commtext c00'></span>
-                      {comment.text}
+                      {ReactHtmlParser(comment.text)}
                       <div className='reply'></div>
                     </div>
                   </td>
