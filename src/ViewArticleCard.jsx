@@ -57,12 +57,11 @@ const ViewArticleCard = (props) => {
                     <div className='comment'>
                       {/* DOMparase()
                       please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
-                      <span className='commtext c00'>
-                        {/* {domparser.parseFromString(
-                          comment.text,
-                          'application/xml'
-                        )} */}
-                      </span>
+                      <span
+                        className='commtext c00'
+                        dangerouslySetInnerHTML={{
+                          __html: comment.text,
+                        }}></span>
                       <div className='reply'></div>
                     </div>
                   </td>
