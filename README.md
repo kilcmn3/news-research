@@ -22,3 +22,6 @@
        -https://reactjs.org/docs/dom-elements.html
     2. Alternative for dangerouslySetInnerHTML.
        -https://dev.to/jam3/how-to-prevent-xss-attacks-when-using-dangerouslysetinnerhtml-in-react-1464
+
+    3. JSX Gotchas(HTML escape)
+      -https://shripadk.github.io/react/docs/jsx-gotchas.html

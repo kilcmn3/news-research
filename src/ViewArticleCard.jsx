@@ -7,6 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReplyCard from './ReplyCard';
+import DOMPurify from 'dompurify';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
@@ -18,7 +19,7 @@ const ViewArticleCard = (props) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(typeof data.text);
+        console.log(data.text);
         if (data.by !== undefined) return setComment(data);
       })
       .catch((e) => console.log(e));
@@ -57,11 +58,11 @@ const ViewArticleCard = (props) => {
                     <div className='comment'>
                       {/* DOMparase()
                       please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
-                      <span
-                        className='commtext c00'
-                        dangerouslySetInnerHTML={{
-                          __html: comment.text,
-                        }}></span>
+                      <span className='commtext c00'>
+                        {DOMPurify.sanitize(comment.text, {
+                          USE_PROFILES: { html: true },
+                        })}
+                      </span>
                       <div className='reply'></div>
                     </div>
                   </td>
