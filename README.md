@@ -16,3 +16,16 @@
   ## Fetching Asynchronous Data-
     -https://www.polvara.me/posts/fetching-asynchronous-data-with-react-hooks/
     -https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/#howtofetchdatawithasyncawaitinreact
+
+  ## dangerouslySetInnerHTML is safe?
+    1. What is dangerouslySetInnerHTML?
+       -https://reactjs.org/docs/dom-elements.html
+    2. Alternative for dangerouslySetInnerHTML.
+       -https://dev.to/jam3/how-to-prevent-xss-attacks-when-using-dangerouslysetinnerhtml-in-react-1464
+
+    3. JSX Gotchas(HTML escape)
+      -https://shripadk.github.io/react/docs/jsx-gotchas.html
+      
+    4. Solution for HTML entities issue(double escaped)
+      -https://xspdf.com/resolution/50187789.html
+      -https://www.npmjs.com/package/react-html-parser
