@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import ViewArticleCard from './ViewArticleCard';
 
 const ViewArticleContainer = (props) => {
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState(null);
   let params = useParams();
   const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
 
@@ -22,7 +22,7 @@ const ViewArticleContainer = (props) => {
       .then((data) => setArticle(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
-    return () => setArticle({});
+    return () => setArticle(null);
   }, []);
 
   const scanComments = () => {
@@ -35,54 +35,58 @@ const ViewArticleContainer = (props) => {
 
   return (
     <center>
-      <table id='hnmain'>
-        <tbody>
-          <tr>
-            <td>
-              <table className='fatitem'>
-                <tbody>
-                  <tr className='athing' id={params.itemId}>
-                    <td className='title'>
-                      <a href={_newsAPI}>{article.title}</a>
-                      <span className='sitebit comehead'>
-                        (
-                        <a href={_newsAPI}>
-                          <span className='sitestr'>{_newsAPI}</span>
+      {article !== null ? (
+        <table id='hnmain'>
+          <tbody>
+            <tr>
+              <td>
+                <table className='fatitem'>
+                  <tbody>
+                    <tr className='athing' id={params.itemId}>
+                      <td className='title'>
+                        <a href={_newsAPI}>{article.title}</a>
+                        <span className='sitebit comehead'>
+                          (
+                          <a href={_newsAPI}>
+                            <span className='sitestr'>{_newsAPI}</span>
+                          </a>
+                          )
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspna='2'></td>
+                      <td className='subtext'>
+                        <span className='score' id={`score_${params.itemId}`}>
+                          {article.score}
+                        </span>
+                        by
+                        <a href={article.by} className='hnuser'>
+                          {article.by}
                         </a>
-                        )
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspna='2'></td>
-                    <td className='subtext'>
-                      <span className='score' id={`score_${params.itemId}`}>
-                        {article.score}
-                      </span>
-                      by
-                      <a href={article.by} className='hnuser'>
-                        {article.by}
-                      </a>
-                      <span className='age'>
-                        <a href={params.id}>on {article.time}</a>
-                        <span id={`unv_${params.itemId}`}></span>
-                      </span>
-                      |
-                      <a href={params.id}>
-                        {article.kids !== undefined ? article.kids.length : 0}{' '}
-                        comments
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <br />
-              <br />
-              <table className='comment-tree'>{scanComments()}</table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                        <span className='age'>
+                          <a href={params.id}>on {article.time}</a>
+                          <span id={`unv_${params.itemId}`}></span>
+                        </span>
+                        |
+                        <a href={params.id}>
+                          {article.kids !== undefined ? article.kids.length : 0}{' '}
+                          comments
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <br />
+                <table className='comment-tree'>{scanComments()}</table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        <div></div>
+      )}
     </center>
   );
 };

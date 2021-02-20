@@ -25,6 +25,7 @@
 
     3. JSX Gotchas(HTML escape)
       -https://shripadk.github.io/react/docs/jsx-gotchas.html
+      
     4. Solution for HTML entities issue(double escaped)
       -https://xspdf.com/resolution/50187789.html
       -https://www.npmjs.com/package/react-html-parser
