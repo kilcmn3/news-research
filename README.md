@@ -16,3 +16,9 @@
   ## Fetching Asynchronous Data-
     -https://www.polvara.me/posts/fetching-asynchronous-data-with-react-hooks/
     -https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/#howtofetchdatawithasyncawaitinreact
+
+  ## dangerouslySetInnerHTML is safe?
+    1. What is dangerouslySetInnerHTML?
+       -https://reactjs.org/docs/dom-elements.html
+    2. Alternative for dangerouslySetInnerHTML.
+       -https://dev.to/jam3/how-to-prevent-xss-attacks-when-using-dangerouslysetinnerhtml-in-react-1464
