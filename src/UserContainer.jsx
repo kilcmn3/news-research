@@ -1,10 +1,12 @@
 /**
  *TODO:
  *-[]Imply style on <div> tag
+ *-[]submissions, comments, favorites
  **/
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 
 const UserContainer = (props) => {
   const [user, setUser] = useState('');
@@ -19,7 +21,6 @@ const UserContainer = (props) => {
       .then((data) => setUser(data));
   }, []);
 
-  console.log(user);
   return (
     <center>
       {/* style = style="margin-top:2px; margin-bottom:-10px;" */}
@@ -29,7 +30,22 @@ const UserContainer = (props) => {
             <td>
               <table border='0'>
                 <tbody>
-                  <tr className='athing'></tr>
+                  <tr className='athing'>
+                    <td valign='top'>user:</td>
+                    <td timestamp={user.created}>{user.id}</td>
+                  </tr>
+                  <tr>
+                    <td valign='top'>created:</td>
+                    <td>{user.created}</td>
+                  </tr>
+                  <tr>
+                    <td valign='top'>karma:</td>
+                    <td>{user.karma}</td>
+                  </tr>
+                  <tr>
+                    <td valign='top'>about:</td>
+                    <td>{ReactHtmlParser(user.about)}</td>
+                  </tr>
                 </tbody>
               </table>
             </td>

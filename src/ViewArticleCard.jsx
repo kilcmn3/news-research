@@ -7,11 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReplyCard from './ReplyCard';
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
