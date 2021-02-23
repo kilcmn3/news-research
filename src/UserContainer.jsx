@@ -46,6 +46,18 @@ const UserContainer = (props) => {
                     <td valign='top'>about:</td>
                     <td>{ReactHtmlParser(user.about)}</td>
                   </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <u>submissions</u>
+                    </td>
+                    <td>
+                      <u>comments</u>
+                    </td>
+                    <td>
+                      <u>favorites</u>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </td>
