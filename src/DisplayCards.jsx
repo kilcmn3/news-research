@@ -1,7 +1,7 @@
 /**
  * TODO:
  * - [x]Link vs Anchor issue
- * - []Convert unit time to years only
+ * - [x]Convert unit time to years only
  * - []some of the article doesn't have URL link
  * - [x]fetching ..better if use asnychronous way
  * - []better handling with error
@@ -23,6 +23,18 @@ const DisplayCards = (props) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const dateCompute = (articleYear) => {
+    const date = new Date();
+    const currentYear = parseInt(date.getFullYear(Date.now));
+    articleYear = parseInt(date.getFullYear(articleYear));
+
+    if (currentYear === articleYear) {
+      return date.getMonth() + ' months';
+    } else {
+      return currentYear - date + ' years';
+    }
+  };
 
   return (
     <article className='Story'>
@@ -48,11 +60,7 @@ const DisplayCards = (props) => {
               </span>
               <span className='Story_separator'>|</span>
               <span>
-                <a href={story.url}>{story.time}</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{story.time} ago</a>
+                <a href={story.url}>{dateCompute(story.time)} ago</a>
               </span>
               <span className='Story_separator'>|</span>
               <span>
