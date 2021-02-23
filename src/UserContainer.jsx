@@ -1,7 +1,7 @@
 /**
  *TODO:
  *-[]Imply style on <div> tag
- *-[]submissions, comments, favorites
+ *-[x]submissions, comments, favorites
  **/
 
 import React, { useEffect, useState } from 'react';
