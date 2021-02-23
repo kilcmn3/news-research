@@ -54,9 +54,6 @@ const UserContainer = (props) => {
                     <td>
                       <u>comments</u>
                     </td>
-                    <td>
-                      <u>favorites</u>
-                    </td>
                   </tr>
                 </tbody>
               </table>
