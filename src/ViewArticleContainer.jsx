@@ -4,7 +4,7 @@
  * -[]when click bbc link shows all the articles that relate to  bbc articles
  * -[]when click author shows all the articles about author's related
  * -[]when click data refresh the  page?
- * -[]Unix time fix
+ * -[x]Unix time fix
  * **/
 
 import React, { useEffect, useState } from 'react';
@@ -13,8 +13,23 @@ import ViewArticleCard from './ViewArticleCard';
 
 const ViewArticleContainer = (props) => {
   const [article, setArticle] = useState(null);
-  let params = useParams();
+  const params = useParams();
   const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
+  const date = new Date();
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   useEffect(() => {
     fetch(_newsAPI)
@@ -65,7 +80,11 @@ const ViewArticleContainer = (props) => {
                           {article.by}
                         </a>
                         <span className='age'>
-                          <a href={params.id}>on {article.time}</a>
+                          <a href={params.id}>
+                            on {months[date.getMonth(article.time)]}{' '}
+                            {date.getDate(article.time)},{' '}
+                            {date.getFullYear(article.time)}
+                          </a>
                           <span id={`unv_${params.itemId}`}></span>
                         </span>
                         |
