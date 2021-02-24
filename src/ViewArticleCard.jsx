@@ -6,7 +6,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ReplyCard from './ReplyCard';
+
 import ReactHtmlParser from 'react-html-parser';
 
 const ViewArticleCard = (props) => {
@@ -24,12 +24,6 @@ const ViewArticleCard = (props) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const commentReplies = () => {
-    return comment.kids.map((kid, index) => {
-      return <ReplyCard key={index} kid={kid} />;
-    });
-  };
 
   return (
     <tbody>

@@ -5,6 +5,7 @@ import ViewArticleContainer from './ViewArticleContainer';
 import UserContainer from './UserContainer';
 import SubmittedContainer from './SubmittedContainer';
 import ThreadsContainer from './ThreadsContainer';
+
 const App = () => {
   return (
     <div className='App'>
