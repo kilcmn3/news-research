@@ -38,6 +38,7 @@ const ViewArticleContainer = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return () => setArticle(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scanComments = () => {
