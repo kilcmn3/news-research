@@ -4,7 +4,7 @@
  * - [x]Convert unit time to years only
  * - [x]some of the article doesn't have URL link
  * - [x]fetching ..better if use asnychronous way
- * - []better handling with error
+ * - [x]better handling with error
  */
 
 import React, { useEffect, useState } from 'react';
