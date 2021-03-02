@@ -2,7 +2,7 @@
  * TODO:
  * - [x]Link vs Anchor issue
  * - [x]Convert unit time to years only
- * - []some of the article doesn't have URL link
+ * - [x]some of the article doesn't have URL link
  * - [x]fetching ..better if use asnychronous way
  * - []better handling with error
  */
