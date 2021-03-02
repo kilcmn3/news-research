@@ -66,7 +66,7 @@ const DisplayCards = (props) => {
               <span>
                 <a href={story.url}>
                   {story.kids !== undefined ? story.kids.length : 0}
-                  times
+                  comments
                 </a>
               </span>
             </div>
