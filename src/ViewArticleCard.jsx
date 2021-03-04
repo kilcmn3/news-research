@@ -2,7 +2,7 @@
  *TODO:
  *-[]Imply style on <div> tag
  *-[]Comment.text need to seperate text with html tag..
- *-[]Fix unix time.
+ *-[x]Fix unix time.
  **/
 
 import React, { useEffect, useState } from 'react';
