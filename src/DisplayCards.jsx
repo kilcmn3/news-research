@@ -36,13 +36,12 @@ const DisplayCards = (props) => {
     }
   };
 
-  const isURLValidOrNOt = (url) => {};
   return (
     <article className='Story'>
       {story !== null ? (
         <div className='Story_container'>
           {/* check if url has valid link or not */}
-          {isURLValidOrNOt(story.url) !== undefined ? (
+          {story.url !== undefined ? (
             <div className='Story_data'>
               <div className='Story_title'>
                 <Link
