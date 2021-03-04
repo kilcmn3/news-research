@@ -36,41 +36,47 @@ const DisplayCards = (props) => {
     }
   };
 
+  const isURLValidOrNOt = (url) => {};
   return (
     <article className='Story'>
       {story !== null ? (
         <div className='Story_container'>
-          <div className='Story_data'>
-            <div className='Story_title'>
-              <Link
-                to={{
-                  pathname: `/item/${story.id}`,
-                }}>
-                {story.title}
-              </Link>
-              <a href={story.url}>({story.url})</a>
+          {/* check if url has valid link or not */}
+          {isURLValidOrNOt(story.url) !== undefined ? (
+            <div className='Story_data'>
+              <div className='Story_title'>
+                <Link
+                  to={{
+                    pathname: `/item/${story.id}`,
+                  }}>
+                  {story.title}
+                </Link>
+                <a href={story.url}>({story.url})</a>
+              </div>
+              <div className='Story_meta'>
+                <span>
+                  <a href={story.url}>{story.score} points</a>
+                </span>
+                <span className='Story_separator'>|</span>
+                <span>
+                  <a href={story.url}>{story.by}</a>
+                </span>
+                <span className='Story_separator'>|</span>
+                <span>
+                  <a href={story.url}>{dateCompute(story.time)} ago</a>
+                </span>
+                <span className='Story_separator'>|</span>
+                <span>
+                  <a href={story.url}>
+                    {story.kids !== undefined ? story.kids.length : 0}
+                    comments
+                  </a>
+                </span>
+              </div>
             </div>
-            <div className='Story_meta'>
-              <span>
-                <a href={story.url}>{story.score} points</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{story.by}</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>{dateCompute(story.time)} ago</a>
-              </span>
-              <span className='Story_separator'>|</span>
-              <span>
-                <a href={story.url}>
-                  {story.kids !== undefined ? story.kids.length : 0}
-                  comments
-                </a>
-              </span>
-            </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       ) : (
         <div></div>
