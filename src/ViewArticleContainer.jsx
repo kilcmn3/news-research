@@ -49,6 +49,15 @@ const ViewArticleContainer = (props) => {
     }
   };
 
+  const dateCompute = (commentTime) => {
+    const date = new Date();
+    const commentMonth = parseInt(date.getMonth(commentTime));
+    const commentDate = parseInt(date.getDate(commentTime));
+    const commentYear = parseInt(date.getFullYear(commentTime));
+
+    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+  };
+
   return (
     <center>
       {article !== null ? (
