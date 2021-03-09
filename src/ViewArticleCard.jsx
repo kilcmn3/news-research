@@ -12,6 +12,20 @@ import ReactHtmlParser from 'react-html-parser';
 
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   useEffect(() => {
     fetch(
@@ -26,7 +40,14 @@ const ViewArticleCard = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const dateCompute = (commentTime) => {};
+  const dateCompute = (commentTime) => {
+    const date = new Date();
+    const commentMonth = parseInt(date.getMonth(commentTime));
+    const commentDate = parseInt(date.getDate(commentTime));
+    const commentYear = parseInt(date.getFullYear(commentTime));
+
+    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+  };
 
   return (
     <tbody>
@@ -46,7 +67,9 @@ const ViewArticleCard = (props) => {
                           }}>
                           {comment.by}
                         </Link>
-                        <span className='age'>{dateCompute(comment.time)}</span>
+                        <span className='age'>
+                          on {dateCompute(comment.time)}
+                        </span>
                       </span>
                     </div>
                     <br></br>

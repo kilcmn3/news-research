@@ -49,6 +49,15 @@ const ViewArticleContainer = (props) => {
     }
   };
 
+  const dateCompute = (articleTime) => {
+    const date = new Date();
+    const commentMonth = parseInt(date.getMonth(articleTime));
+    const commentDate = parseInt(date.getDate(articleTime));
+    const commentYear = parseInt(date.getFullYear(articleTime));
+
+    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+  };
+
   return (
     <center>
       {article !== null ? (
@@ -81,11 +90,7 @@ const ViewArticleContainer = (props) => {
                           {article.by}
                         </a>
                         <span className='age'>
-                          <a href={params.id}>
-                            on {months[date.getMonth(article.time)]}{' '}
-                            {date.getDate(article.time)},{' '}
-                            {date.getFullYear(article.time)}
-                          </a>
+                          <a href={params.id}>on {dateCompute(article.Time)}</a>
                           <span id={`unv_${params.itemId}`}></span>
                         </span>
                         |
