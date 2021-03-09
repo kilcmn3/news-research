@@ -55,7 +55,7 @@ const ViewArticleContainer = (props) => {
     const commentDate = parseInt(date.getDate(articleTime));
     const commentYear = parseInt(date.getFullYear(articleTime));
 
-    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+    return months[commentMonth] + ' ' + commentDate + ', ' + commentYear;
   };
 
   return (

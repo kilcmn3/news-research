@@ -46,7 +46,7 @@ const ViewArticleCard = (props) => {
     const commentDate = parseInt(date.getDate(commentTime));
     const commentYear = parseInt(date.getFullYear(commentTime));
 
-    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+    return months[commentMonth] + ' ' + commentDate + ', ' + commentYear;
   };
 
   return (
