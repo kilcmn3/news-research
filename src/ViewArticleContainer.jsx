@@ -55,7 +55,12 @@ const ViewArticleContainer = (props) => {
     const commentDate = parseInt(date.getDate(articleTime));
     const commentYear = parseInt(date.getFullYear(articleTime));
 
-    return months[commentMonth] + ' ' + commentDate + ' ' + commentYear;
+    return months[commentMonth] + ' ' + commentDate + ', ' + commentYear;
+  };
+
+  const urlWithoutProtocol = (articleUrl) => {
+    const url = new URL(article).host;
+    return url.substr(5);
   };
 
   return (
@@ -69,11 +74,11 @@ const ViewArticleContainer = (props) => {
                   <tbody>
                     <tr className='athing' id={params.itemId}>
                       <td className='title'>
-                        <a href={_newsAPI}>{article.title}</a>
+                        <a href={article.url}>{article.title}</a>
                         <span className='sitebit comehead'>
                           (
-                          <a href={_newsAPI}>
-                            <span className='sitestr'>{_newsAPI}</span>
+                          <a href={article.url}>
+                            <span className='sitestr'>{article.url}</span>
                           </a>
                           )
                         </span>
