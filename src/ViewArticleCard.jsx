@@ -2,7 +2,7 @@
  *TODO:
  *-[]Imply style on <div> tag
  *-[]Comment.text need to seperate text with html tag..
- *-[]Fix unix time.
+ *-[x]Fix unix time.
  **/
 
 import React, { useEffect, useState } from 'react';
@@ -26,6 +26,8 @@ const ViewArticleCard = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const dateCompute = (commentTime) => {};
+
   return (
     <tbody>
       {comment !== null ? (
@@ -44,7 +46,7 @@ const ViewArticleCard = (props) => {
                           }}>
                           {comment.by}
                         </Link>
-                        <span className='age'>{comment.time}</span>
+                        <span className='age'>{dateCompute(comment.time)}</span>
                       </span>
                     </div>
                     <br></br>
