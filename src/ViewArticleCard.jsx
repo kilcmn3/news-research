@@ -1,6 +1,7 @@
 /**
  *TODO:
  *-[]Imply style on <div> tag
+ *-[]dangerousInnerHtml vs ReactHtmlParser
  *-[]Comment.text need to seperate text with html tag..
  *-[x]Fix unix time.
  **/
@@ -77,8 +78,9 @@ const ViewArticleCard = (props) => {
                       {/* DOMparase()
                       please read here : https://developer.mozilla.org/en-US/docs/Web/API/DOMParser */}
                       <span className='commtext c00'></span>
-                      {ReactHtmlParser(comment.text)}
-                      <div className='reply'></div>
+                      {/* {ReactHtmlParser(comment.text)} */}
+                      <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+                      ;<div className='reply'></div>
                     </div>
                   </td>
                 </tr>

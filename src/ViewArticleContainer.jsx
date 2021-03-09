@@ -58,6 +58,11 @@ const ViewArticleContainer = (props) => {
     return months[commentMonth] + ' ' + commentDate + ', ' + commentYear;
   };
 
+  const urlWithoutProtocol = (articleUrl) => {
+    const url = new URL(article).host;
+    return url.substr(5);
+  };
+
   return (
     <center>
       {article !== null ? (
