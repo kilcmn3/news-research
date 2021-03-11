@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
-const UserContainer = (props) => {
+const UserContainer = () => {
   const [user, setUser] = useState('');
   const date = new Date();
   const months = [
