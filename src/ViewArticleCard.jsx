@@ -78,7 +78,7 @@ const ViewArticleCard = (props) => {
                       <span className='commtext c00'></span>
                       {/* {ReactHtmlParser(comment.text)} */}
                       <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-                      ;<div className='reply'></div>
+                      <div className='reply'></div>
                     </div>
                   </td>
                 </tr>
