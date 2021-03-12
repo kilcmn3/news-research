@@ -9,8 +9,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import ReactHtmlParser from 'react-html-parser';
-
 const ViewArticleCard = (props) => {
   const [comment, setComment] = useState(null);
   const months = [
@@ -80,7 +78,7 @@ const ViewArticleCard = (props) => {
                       <span className='commtext c00'></span>
                       {/* {ReactHtmlParser(comment.text)} */}
                       <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-                      ;<div className='reply'></div>
+                      <div className='reply'></div>
                     </div>
                   </td>
                 </tr>

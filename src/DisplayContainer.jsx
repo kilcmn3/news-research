@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DisplayCards from './DisplayCards';
 
-const DisplayContainer = (props) => {
+const DisplayContainer = () => {
   const [topStories, setTopStories] = useState(null);
 
   useEffect(() => {

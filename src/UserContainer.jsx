@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
-const UserContainer = (props) => {
+const UserContainer = () => {
   const [user, setUser] = useState('');
   const date = new Date();
   const months = [
@@ -33,8 +33,9 @@ const UserContainer = (props) => {
     )
       .then((response) => response.json())
       .then((data) => setUser(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(date.getDate(user.created));
+
   return (
     <center>
       {/* style = style="margin-top:2px; margin-bottom:-10px;" */}
