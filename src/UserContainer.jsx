@@ -33,8 +33,9 @@ const UserContainer = (props) => {
     )
       .then((response) => response.json())
       .then((data) => setUser(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(date.getDate(user.created));
+
   return (
     <center>
       {/* style = style="margin-top:2px; margin-bottom:-10px;" */}
