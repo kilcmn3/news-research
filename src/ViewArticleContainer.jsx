@@ -34,8 +34,8 @@ const ViewArticleContainer = (props) => {
   useEffect(() => {
     fetch(_newsAPI)
       .then((response) => response.json())
-      .then((data) => setArticle(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .then((data) => setArticle(data))
+      .then((e) => console.log(e));
 
     return () => setArticle(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,8 +59,13 @@ const ViewArticleContainer = (props) => {
   };
 
   const urlWithoutProtocol = (articleUrl) => {
-    const url = new URL(article).host;
-    return url.substr(5);
+    console.log(articleUrl);
+    if (!articleUrl) {
+      return false;
+    }
+
+    const url = new URL(articleUrl).hostname;
+    return url[0] === 'w' ? url.substr(4) : url;
   };
 
   return (
@@ -78,7 +83,9 @@ const ViewArticleContainer = (props) => {
                         <span className='sitebit comehead'>
                           (
                           <a href={article.url}>
-                            <span className='sitestr'>{article.url}</span>
+                            <span className='sitestr'>
+                              {urlWithoutProtocol(article.url)}
+                            </span>
                           </a>
                           )
                         </span>
@@ -90,7 +97,7 @@ const ViewArticleContainer = (props) => {
                         <span className='score' id={`score_${params.itemId}`}>
                           {article.score}
                         </span>
-                        by
+                        points by
                         <a href={article.by} className='hnuser'>
                           {article.by}
                         </a>
