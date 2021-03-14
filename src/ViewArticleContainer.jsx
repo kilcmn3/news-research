@@ -36,7 +36,6 @@ const ViewArticleContainer = (props) => {
       .then((response) => response.json())
       .then((data) => setArticle(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-
     return () => setArticle(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -90,7 +89,7 @@ const ViewArticleContainer = (props) => {
                         <span className='score' id={`score_${params.itemId}`}>
                           {article.score}
                         </span>
-                        by
+                        points by
                         <a href={article.by} className='hnuser'>
                           {article.by}
                         </a>
