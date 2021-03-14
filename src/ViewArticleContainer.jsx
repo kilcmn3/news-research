@@ -59,8 +59,12 @@ const ViewArticleContainer = (props) => {
   };
 
   const urlWithoutProtocol = (articleUrl) => {
-    const url = new URL(article).host;
-    return url.substr(5);
+    if (!articleUrl) {
+      const url = new URL(articleUrl.url).host;
+      return url;
+    } else {
+      return false;
+    }
   };
 
   return (
