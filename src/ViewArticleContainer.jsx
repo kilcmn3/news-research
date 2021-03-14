@@ -34,8 +34,9 @@ const ViewArticleContainer = (props) => {
   useEffect(() => {
     fetch(_newsAPI)
       .then((response) => response.json())
-      .then((data) => setArticle(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .then((data) => setArticle(data))
+      .then((e) => console.log(e));
+
     return () => setArticle(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
