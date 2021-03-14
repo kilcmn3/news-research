@@ -59,12 +59,13 @@ const ViewArticleContainer = (props) => {
   };
 
   const urlWithoutProtocol = (articleUrl) => {
+    console.log(articleUrl);
     if (!articleUrl) {
-      const url = new URL(articleUrl.url).host;
-      return url;
-    } else {
       return false;
     }
+
+    const url = new URL(articleUrl).hostname;
+    return url[0] === 'w' ? url.substr(4) : url;
   };
 
   return (
@@ -82,7 +83,9 @@ const ViewArticleContainer = (props) => {
                         <span className='sitebit comehead'>
                           (
                           <a href={article.url}>
-                            <span className='sitestr'>{article.url}</span>
+                            <span className='sitestr'>
+                              {urlWithoutProtocol(article.url)}
+                            </span>
                           </a>
                           )
                         </span>
