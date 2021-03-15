@@ -15,7 +15,6 @@ const ViewArticleContainer = (props) => {
   const [article, setArticle] = useState(null);
   const params = useParams();
   const _newsAPI = `https://hacker-news.firebaseio.com/v0/item/${params.itemId}.json?print=pretty`;
-  const date = new Date();
   const months = [
     'January',
     'February',
