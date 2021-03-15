@@ -58,7 +58,6 @@ const ViewArticleContainer = (props) => {
   };
 
   const urlWithoutProtocol = (articleUrl) => {
-    console.log(articleUrl);
     if (!articleUrl) {
       return false;
     }
