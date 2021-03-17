@@ -1,3 +1,7 @@
+/**TODO:
+ *[] - <table> styling
+ **/
+
 import React, { useEffect, useState } from 'react';
 
 const SubmittedCards = (props) => {
@@ -16,8 +20,13 @@ const SubmittedCards = (props) => {
     return () => setarticles(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(article);
-  return <div>submittedCards</div>;
+
+  return (
+    <center>
+      {/* border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef" */}
+      <table id='hnmain'></table>
+    </center>
+  );
 };
 
 export default SubmittedCards;
