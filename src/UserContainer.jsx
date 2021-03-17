@@ -5,6 +5,7 @@
  **/
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -62,13 +63,15 @@ const UserContainer = () => {
                     <td>{user.karma}</td>
                   </tr>
                   <tr>
-                    <td valign='top'>about:</td>
+                    <td valign='top'>about: </td>
                     <td>{ReactHtmlParser(user.about)}</td>
                   </tr>
                   <tr>
                     <td></td>
                     <td>
-                      <u>submissions</u>
+                      <Link to={{ pathname: `/submitted/${user.id}` }}>
+                        <u>submissions</u>
+                      </Link>
                     </td>
                     <td></td>
                     <td>
