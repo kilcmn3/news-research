@@ -34,6 +34,7 @@ const SubmittedContainer = (props) => {
       );
     });
   };
+
   return (
     <>
       {user !== null ? (
