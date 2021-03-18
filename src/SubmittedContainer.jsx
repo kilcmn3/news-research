@@ -27,7 +27,7 @@ const SubmittedContainer = (props) => {
   const renderSubmissionCards = (submissions) => {
     return submissions.map((submission, index) => {
       return (
-        <tr key={index}>
+        <tr className='athing' key={index} id={index}>
           <SubmittedCard submission={submission} />
         </tr>
       );

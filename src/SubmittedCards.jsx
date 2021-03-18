@@ -22,7 +22,12 @@ const SubmittedCards = (props) => {
   }, []);
 
   return article !== null ? (
-    <td className='athing' id={article.id}></td>
+    <td className='title' id={article.id}>
+      <a href={article.url} className='stroylink' rel='nofollow'>
+        {article.title}
+      </a>
+      <span className='sitebit comhead'>" ("</span>
+    </td>
   ) : (
     <td></td>
   );
