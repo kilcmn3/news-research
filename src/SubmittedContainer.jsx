@@ -20,8 +20,9 @@ const SubmittedContainer = (props) => {
 
   useEffect(() => {
     fetchUserSubmition();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     return () => setUser(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderSubmissionCards = (submissions) => {

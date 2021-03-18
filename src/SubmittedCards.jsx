@@ -21,12 +21,24 @@ const SubmittedCards = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const urlWithoutProtocol = (articleUrl) => {
+    if (!articleUrl) {
+      return false;
+    }
+
+    const url = new URL(articleUrl).hostname;
+    return url[0] === 'w' ? url.substr(4) : url;
+  };
+
+  console.log(article);
   return article !== null ? (
     <td className='title' id={article.id}>
       <a href={article.url} className='stroylink' rel='nofollow'>
         {article.title}
       </a>
-      <span className='sitebit comhead'>" ("</span>
+      <span className='sitebit comhead'>
+        (<a href={article.url}>{urlWithoutProtocol(article.url)}</a>)
+      </span>
     </td>
   ) : (
     <td></td>
