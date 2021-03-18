@@ -1,3 +1,10 @@
+/**TODO:
+ *[] - add points of article
+ *[] - add article timeline
+ *[] - add userName
+ *[] - add artilce URL
+ **/
+
 import React, { useState, useEffect } from 'react';
 
 const SubmittedFetch = (props) => {
