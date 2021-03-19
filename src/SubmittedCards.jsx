@@ -1,23 +1,42 @@
+/**TODO:
+ *[] - <table> styling
+ **/
+
 import React, { useEffect, useState } from 'react';
+import SubmittedFetch from './SubmittedFetch';
 
 const SubmittedCards = (props) => {
-  const [article, setarticles] = useState(null);
+  const [comment, setComment] = useState(null);
 
   const fetchSubmssions = () => {
     return fetch(
       `https://hacker-news.firebaseio.com/v0/item/${props.submission}.json?print=pretty`
     )
       .then((response) => response.json())
-      .then((data) => setarticles(data));
+      .then((data) => setComment(data));
   };
 
   useEffect(() => {
     fetchSubmssions();
-    return () => setarticles(null);
+
+    return () => setComment(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(article);
-  return <div>submittedCards</div>;
+
+  const parentArticle = (list) => {
+    if (!list.deleted) {
+      return <SubmittedFetch parent={list.parent} />;
+    }
+    return <></>;
+  };
+
+  return comment !== null ? (
+    <td className='title' id={comment.id}>
+      {parentArticle(comment)}
+    </td>
+  ) : (
+    <td></td>
+  );
 };
 
 export default SubmittedCards;
