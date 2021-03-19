@@ -15,7 +15,13 @@ const SubmittedFetch = (props) => {
       `https://hacker-news.firebaseio.com/v0/item/${props.parent}.json?print=pretty`
     )
       .then((response) => response.json())
-      .then((data) => setArticle(data));
+      .then((data) => {
+        if (data.type === 'story') {
+          setArticle(data);
+        } else {
+          return;
+        }
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -28,7 +34,6 @@ const SubmittedFetch = (props) => {
     return url[0] === 'w' ? url.substr(4) : url;
   };
 
-  console.log(props);
   return article !== null ? (
     <>
       <a href={article.url} className='stroylink' rel='nofollow'>
