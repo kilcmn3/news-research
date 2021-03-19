@@ -64,7 +64,12 @@ const DisplayCards = (props) => {
                 </span>
                 <span className='Story_separator'>|</span>
                 <span>
-                  <a href={story.url}>{story.by}</a>
+                  <Link
+                    to={{
+                      pathname: `/item/${story.id}`,
+                    }}>
+                    {story.by}{' '}
+                  </Link>
                 </span>
                 <span className='Story_separator'>|</span>
                 <span>
