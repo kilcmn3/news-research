@@ -55,7 +55,12 @@ const DisplayCards = (props) => {
               </div>
               <div className='Story_meta'>
                 <span>
-                  <a href={story.url}>{story.score} points</a>
+                  <Link
+                    to={{
+                      pathname: `/item/${story.id}`,
+                    }}>
+                    {story.score} points{' '}
+                  </Link>
                 </span>
                 <span className='Story_separator'>|</span>
                 <span>
