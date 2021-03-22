@@ -73,14 +73,22 @@ const DisplayCards = (props) => {
                 </span>
                 <span className='Story_separator'>|</span>
                 <span>
-                  <a href={story.url}>{dateCompute(story.time)} ago</a>
+                  <Link
+                    to={{
+                      pathname: `/item/${story.id}`,
+                    }}>
+                    {dateCompute(story.time)} ago{' '}
+                  </Link>
                 </span>
                 <span className='Story_separator'>|</span>
                 <span>
-                  <a href={story.url}>
+                  <Link
+                    to={{
+                      pathname: `/item/${story.id}`,
+                    }}>
                     {story.kids !== undefined ? story.kids.length : 0}
                     comments
-                  </a>
+                  </Link>
                 </span>
               </div>
             </div>
