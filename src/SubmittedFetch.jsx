@@ -28,7 +28,7 @@ const SubmittedFetch = (props) => {
     return url[0] === 'w' ? url.substr(4) : url;
   };
 
-  console.log(article);
+  console.log(props);
   return article !== null ? (
     <>
       <a href={article.url} className='stroylink' rel='nofollow'>
