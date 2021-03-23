@@ -11,19 +11,23 @@ const SubmittedFetch = (props) => {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
+    fetchParentStory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchParentStory = () => {
     fetch(
       `https://hacker-news.firebaseio.com/v0/item/${props.parent}.json?print=pretty`
     )
       .then((response) => response.json())
       .then((data) => {
-        if (data.type === 'story') {
-          setArticle(data);
-        } else {
-          return;
+        if (data.story !== 'story' && data.url !== undefined) {
+          return setArticle(data);
         }
+
+        return false;
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  };
 
   const urlWithoutProtocol = (commentUrl) => {
     if (!commentUrl) {
