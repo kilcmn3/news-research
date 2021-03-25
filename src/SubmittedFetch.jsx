@@ -11,13 +11,23 @@ const SubmittedFetch = (props) => {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
+    fetchParentStory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchParentStory = () => {
     fetch(
       `https://hacker-news.firebaseio.com/v0/item/${props.parent}.json?print=pretty`
     )
       .then((response) => response.json())
-      .then((data) => setArticle(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      .then((data) => {
+        if (data.story !== 'story' && data.url !== undefined) {
+          return setArticle(data);
+        }
+
+        return false;
+      });
+  };
 
   const urlWithoutProtocol = (commentUrl) => {
     if (!commentUrl) {
@@ -28,7 +38,6 @@ const SubmittedFetch = (props) => {
     return url[0] === 'w' ? url.substr(4) : url;
   };
 
-  console.log(article);
   return article !== null ? (
     <>
       <a href={article.url} className='stroylink' rel='nofollow'>

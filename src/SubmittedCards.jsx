@@ -24,7 +24,7 @@ const SubmittedCards = (props) => {
   }, []);
 
   const parentArticle = (list) => {
-    if (!list.deleted) {
+    if (!list.deleted && list.parent !== undefined) {
       return <SubmittedFetch parent={list.parent} />;
     }
     return <></>;
