@@ -11,7 +11,11 @@ const SubmittedFetch = (props) => {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
+<<<<<<< HEAD
     // fetchParentStory();
+=======
+    fetchParentStory();
+>>>>>>> 8c31fa87fec8fc60ca330ac45b40d41f36a032b5
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
